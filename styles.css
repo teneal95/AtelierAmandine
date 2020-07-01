@@ -1,0 +1,498 @@
+/*Adding custom font Raleway*/
+@font-face {
+  font-family: Raleway;
+  src: url(fonts/Raleway-Light.ttf);
+}
+body{
+  margin: 0;
+  padding:0;
+  font-family: Raleway, Verdana, Geneva, Tahoma, sans-serif;  
+  position: relative; /*relative position required for min-width of webpage*/
+  top: 0;
+  left: 0;
+  min-width: 970px; /*min-width of webpage*/
+}
+ 
+/*Language Toggle Links*/
+#langTogContainer{
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0); /*Fixed positioning/translate centre the language toggle at the top of page*/
+  z-index: 500;
+  background-color: rgb(58, 58, 58);
+}
+.langToggle{
+  color: white;
+  font-size: 18pt;
+  text-decoration: none;
+  float: left;
+  padding: 15px;
+  font-weight: bold;
+  transition: background-color 0.6s ease; /*Hover style change eases*/
+}
+.langToggle:hover{
+  background-color: rgb(80, 80, 80); /*Hover style change*/
+}
+
+/*Heading and Tagline styles*/
+#companyNameContainer {
+  width: 340px; 
+  height: 215px; 
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(76, 91, 94);
+  transform: skewY(-8deg); /*Skew container to give slanted style on bottom*/
+  z-index: 200;
+}
+#companyNameContainer::before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position:absolute;
+  top: 0;
+  left: 18px;
+  background: rgb(76, 91, 94);
+  transform: skewX(-8deg); /*Add the same container before and skew in the x direction to give slanted style on right side*/
+}
+#companyNameContainer::after{ /*Add the same container after and reverse skew in y direction, this container covers transparent space left in the top left corner from previous skews*/ 
+  width: 95%;
+  height: 100%;
+  content: "";
+  position:absolute;
+  top: -20%;
+  left: 0;
+  background: rgb(76, 91, 94);
+  transform: skewY(8deg);
+  z-index: -300;
+}
+#companyName {
+  font-weight: 100;
+  color: white;
+  font-size: 35pt;
+  margin: 0;
+  padding: 28px 28px 0px 28px;
+  max-width: 100%;
+  letter-spacing: 0.17em;
+  transform: skewY(8deg); /*Reverse Skew inherited from container so that text is straight*/
+}
+#tagline{
+  color: white;
+  font-weight: 100;
+  font-size: 11pt;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  margin: 0;
+  padding: 10px 28px 28px 28px;
+  transform: skewY(8deg) /*Reverse Skew inherited from container so that text is straight*/
+}
+  
+/*NavBar Styles*/
+  
+#navBarStartPos{
+  width: 100%;
+  height: 49px; /*49px div to offset start position of navigation bar*/ 
+  background-color: rgba(58, 58, 58);
+}
+#container{
+  overflow: hidden;
+  position: sticky;
+  top:0;
+  margin: 0;
+  background-image: linear-gradient(to bottom, rgb(58, 58, 58, 1) 50%, rgb(58, 58, 58, 0)50%); /*Used to cover transparent space left by skew of <ul> and <li>'s, bottom half is left transparent so bottom skew style is left visible*/
+  z-index: 100;
+
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /*Hide skew overflow*/
+  background: rgba(58, 58, 58);
+  position: -webkit-sticky; /* Safari */   
+  position: sticky;
+  top: 0;
+  margin: 0 0 16px 0; /*Bottom margin used to create transparent skew for NavBar. If skewY() angle on ul/li/li a change, this must also be changed to fit.*/
+  transform: skewY(0.8deg); /*Skew style for bottom of NavBar*/
+  z-index: 100;
+
+}
+li {
+  float: right; 
+  transform: skewY(0.8deg); /*Skew style for bottom of NavBar*/
+}
+li a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding:20px;
+  transform: skewY(-1.6deg); /*Reverse inherited skews for text in NavBar*/
+  transition: background-color 0.6s ease; /*Hover style change eases*/
+}
+li a:hover{
+  background-color: rgb(80, 80, 80)
+}
+  
+/* Background */
+  
+#main_background{
+  position: relative; /*relative positioning to move slightly down*/
+  top: -75px; 
+  left: 0;
+  width: 100%;
+  height: 80vh; /*height not covering the whole viewport*/
+  margin: 0;
+  z-index: -20; /*low z index for rotating questions to be on top*/
+  background: url("images/WorkingOriginal1111.jpg") no-repeat right bottom fixed; /*main picture for homepage, fixed positioning*/
+  background-size: cover;
+}
+#quContainer{
+  width: 100%;
+  background-color: rgb(58, 58, 58, 0.7);
+  height: 90px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.quText {
+  width: 100%;
+  font-size: 16pt;
+  font-style: italic;
+  letter-spacing: 0.15em;
+  margin: 0;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  text-align: center;
+  color: white;
+  animation-duration: 30s; /*animation settings for rotating questions on bottom on main picture*/
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 30s;
+  -webkit-animation-timing-function: infinite;
+}
+/*animation names for each question*/
+#q1{
+  animation-name: anim_1;
+  -webkit-animation-name: anim_1;
+}
+#q2{
+  animation-name: anim_2;
+  -webkit-animation-name: anim_2;
+}
+#q3{
+  animation-name: anim_3;
+  -webkit-animation-name: anim_3;
+}
+@keyframes anim_1 {
+  0%, 6% {opacity: 0; } /*fade in q1*/
+  6%, 27% {opacity: 1; } /*max opacity*/
+  33%, 100% {opacity: 0; } /*fade out q1*/
+}
+@-webkit-keyframes anim_1 {
+  0%, 6% {opacity: 0; } /*fade in q1*/
+  6%, 27% {opacity: 1; } /*max opacity*/
+  33%, 100% {opacity: 0; } /*fade out q1*/
+}
+@keyframes anim_2 {
+  0%, 33% {opacity: 0; } /*fade in q2*/
+  39%, 60% {opacity: 1; } /*max opacity*/
+  66%, 100% {opacity: 0; } /*fade out q2*/
+}
+@-webkit-keyframes anim_2 {
+  0%, 33% {opacity: 0; } /*fade in q2*/
+  39%, 60% {opacity: 1; } /*max opacity*/
+  66%, 100% {opacity: 0; } /*fade out q2*/
+}
+@keyframes anim_3 {
+  0%, 66% {opacity: 0; }/*fade in q3*/
+  72%, 94% {opacity: 1; } /*max opacity*/
+  94%, 100% {opacity: 0; } /*fade out q3*/
+}
+@-webkit-keyframes anim_3 {
+  0%, 66% {opacity: 0; }/*fade in q3*/
+  72%, 94% {opacity: 1; } /*max opacity*/
+  94%, 100% {opacity: 0; } /*fade out q3*/
+}
+/* Info */
+#flexContainer{
+  position: relative;
+  top: -50px; /*relative positioning to show top of pictures to user when page loads*/
+  left: 0;
+  display: flex; /*using flex display for responsive style*/
+  flex-direction: row; /*flex in row direction*/
+  margin: 0;
+  padding: 15px 40px 15px 40px;
+  max-width: 100%;
+}
+.imgContainer{
+  margin: 0;
+  padding: 15px 40px 15px 40px;
+  flex: 33.33%; /*each picture takes a third of the space*/
+}
+.images{
+  width: 100%;
+}
+#textContainer{
+  position: relative; /*Container of main information positioned slightly higher to match picture above*/
+  top: -50px; 
+  padding: 0px 115px 0px 115px;
+}
+#para{
+  text-align: justify;
+  font-size: 17pt;
+  line-height: 2.5em;
+  font-weight: 500;
+}
+
+/* Footer */
+#footer{
+  position: relative; /*Position footer at bottom of page*/
+  bottom: 0;
+  left: 0;
+  background-color: rgb(58, 58, 58);
+  width: 100%;
+  height: 110px;
+  color: white;
+  font-size: 12pt;
+  line-height: 2em;
+}
+#info{
+  position: absolute; /*position personal info to right*/
+  top: 10px;
+  left: 80px;
+}
+#design {
+  width: 175px;
+  text-align: center;
+  opacity: 0.4;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+#NS{
+  position: absolute; /*position company info to left*/
+  top: 10px;
+  right: 80px;
+}
+
+
+/* Contact Form Styles */
+#formContainer {
+  position: relative; /*Push form down slightly*/
+  top: 150px;
+  padding: 0 20vw 50px 20vw;
+}
+#contactContainer{
+  width: 600px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+#alertBox {
+  padding: 10px;
+  display: none; /*Alert not displayed until form submitted incorrectly*/
+}
+#alert {
+  padding: 10px;
+  width: 250px;
+  text-align: center;
+  background-color: rgb(58, 58, 58);
+  color: white;
+  border-radius: 4px; /*rounded corners*/
+}
+input[type=text], select, textarea { /*selecting inputs*/
+  font-family: Raleway, Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 0.01em;
+  width: 100%; 
+  padding: 12px;
+  border: 1px solid rgb(80, 80, 80); 
+  border-radius: 4px; /*rounded corners*/
+  box-sizing: border-box;
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  resize: none;
+}
+input[type=submit] { /*selecting submit button*/
+  font-family: Raleway, Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(58, 58, 58);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px; /*rounded corners*/
+  cursor: pointer; /*pointer when hovering*/
+  letter-spacing: 0.1em;
+}
+input[type=submit]:hover { /*change style of submit when hovering*/
+  background-color: rgb(80, 80, 80);
+}
+/* Gallery Styles */
+#galleryContainer {
+  max-width: 1200px; 
+  min-width: 950px;
+  height: 85vh; /*user can view whole gallery with navebar and heading in viewport*/
+  position: relative;
+  margin: 90px auto; /*add top and bottom margin, centre align*/
+  background-color: rgba(58, 58, 58, 0.5);
+  display: none; /*initially not visible, visibility changed in app2.js*/
+  transition: 1s ease-in-out; /*when size is changed, transition is eased*/
+}
+#prev, #next {
+  cursor: pointer; /*pointer on hover*/
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease; /*hover style change eased*/
+  border-radius: 0 3px 3px 0; /*inside corners rounded*/
+  user-select: none; /*can not highligh arrow as you can with text, produces more of an icon*/
+}
+#next {
+  right: 0; /*move next button to opposite side*/
+  border-radius: 3px 0 0 3px; /*inside corners rounded*/
+}
+#prev:hover, #next:hover {
+  background-color: rgba(0,0,0,0.8); /*hover colour change*/
+}
+.slides{
+  height: 100%;
+  position: absolute;
+  left: 50%; /*centre slides*/
+  top: 0;
+  transform: translateX(-50%); /*centre slides*/
+}
+.contentContainer{
+  height: 94%; /*3% space at top and bottom*/
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 3% 0; /*centres img conytainers*/
+}
+.galleryImg{
+  display: block;
+  height: 100%;
+}
+.text{
+  box-sizing: border-box;
+  background-color: rgb(0, 0, 0, 0.6);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 38px;
+  padding: 2%;
+  color: white;
+  transition: 1s ease; /*when size is changed, transition is eased*/
+}
+.prompt{
+  text-align: center;
+  display: block;
+}
+.caption{
+  display: none;
+  text-align: justify;
+  opacity: 0;
+  transition: 1s ease; /*when opacity is changed, transition is eased*/
+  padding-left: 1em;
+  padding-right: 1em;
+}
+/* Fading animation for image changes in gallery*/
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/*Testimonial Styles*/
+#testsContainer{
+  width: 100%;
+  position: relative;
+  top: 0;
+  display: flex; /*using flex display for responsive style*/ 
+  flex-direction: row-reverse; /*flex in reverse row direction*/
+  flex-wrap: wrap; /*wraps onto new line after two testimonials*/
+}
+.testContainer{
+  box-sizing: border-box; /*include padding in dimensions*/
+  flex: 0 50%; /*items take 50% of room per row, and do not grow*/
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.testText{
+  font-size: 14pt;
+  text-align: justify;
+  font-style: italic;
+  line-height: 3em;
+  letter-spacing: 1px;
+
+}
+.quoteMarkStart, .quoteMarkEnd{
+  font-size: 6em;
+  font-family: Georgia, serif; /*different font for quote marks*/
+  font-weight: 100;
+  color: rgb(0, 0, 0, 0.6);
+}
+.quoteMarkEnd{
+  position: relative; /* position more to the right*/
+  top: 0.5em;
+  left: 1em;
+}
+.left{
+  padding: 100px 75px 100px 200px; /*more padding on outside and less on inside*/
+}
+.right{
+  padding: 100px 200px 100px 75px; /*more padding on outside and less on inside*/
+}
+.left .testText{
+  position: relative; /*move quote slightly down*/
+  top: 100px;
+}
+
+
+/* Responsive Styles */
+@media only screen and (max-width: 1300px){
+  .para{
+    font-size: 15pt; /*change font size at smaller screen size*/
+  }
+}
+@media only screen and (max-width: 1150px){
+  #workBench {
+    display: none; /*reduce number of pictures to two on main page at smaller screen size*/
+  }
+  .imgContainer{
+    flex: 50%;
+  }
+}
+@media only screen and (max-width: 990px){
+  #langTogContainer{
+    position: absolute;
+    left: 485px; /*Stops Toggle buttons from drifting left with resizing past min width of body*/
+
+  }
+  #formContainer{
+    padding: 0 200px 0 200px; /*less padding on form at smaller screen size*/
+  }
+
+}

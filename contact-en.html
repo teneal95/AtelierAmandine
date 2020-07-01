@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Amandine - Contact</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    /* Footer positioning for this page, is dependent on relative top position of '#formContainer' in styles.ccs file*/
+    #footer{
+      position: relative;
+      bottom: -150px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Toggle Links -->
+  <div id="langTogContainer">
+    <a class="langToggle" href="contact-fr.html"> FR </a>
+    <a class="langToggle" href="contact-en.html"> EN </a>
+  </div>
+
+  <!-- Heading -->
+  <div id="companyNameContainer" class="notranslate">
+    <h1 id="companyName">Atelier <br> Amandine</h1>
+    <h2 id="tagline">de cr&eacute;ation des vitraux La Corr&egrave;ze</h2>   
+  </div>
+
+  <!-- Navigation Bar -->
+  <div id="navBarStartPos"></div>
+  <div id="container">
+    <ul>
+      <li > <a href="testimonials-en.html">Testimonials</a></li>
+      <li> <a href="gallery-en.html">Gallery</a></li>
+      <li>  <a href="contact-en.html">Contact</a></li>
+      <li> <a href="index.html">Home</a></li>
+    </ul>
+  </div>
+
+  <!-- Contact Form -->
+  <div id="formContainer">
+    <div id="contactContainer">
+      <p>Please complete the contact form below, Cath will endavour to respond as soon as possible at the email you provide.</p>
+    </div>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="fullname" placeholder="Please enter your name..." required>
+
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="UK">UK</option>
+        <option value="France">France</option>
+      </select>
+
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" placeholder="Please enter your email..." required>
+
+      <label for="emailConfirm">Email Confirmation</label>
+      <input type="text" id="emailConfirm" name="emailConf" placeholder="Please re-enter your email to confirm..." required>
+      <div id="alertBox">
+        <p id="alert">Emails do not match</p>
+      </div>
+
+      <label for="message">Message</label>
+      <textarea name="message" rows="8" placeholder="Write your message here..." required></textarea>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <!--- Footer -->
+  <div id="footer">
+    <p id="info"> Cath Neal<br>neal.landscape@gmail.com</p>
+    <p id="NS"> Atelier Amandine<br>Numéro Siret :  83348700200010</p>
+    <p id="design"> Design: Tommy Neal</p>
+  </div> 
+  
+  <script src="app.js"></script>
+</body>
+</html>

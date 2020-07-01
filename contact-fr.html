@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Amandine - Contact</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    /* Footer positioning for this page, is dependent on relative top position of '#formContainer' in styles.ccs file*/
+    #footer{
+      position: relative;
+      bottom: -150px;
+    }
+  </style>
+    
+</head>
+<body>
+
+  <!-- Language Toggle Links -->
+  <div id="langTogContainer">
+    <a class="langToggle" href="contact-fr.html"> FR </a>
+    <a class="langToggle" href="contact-en.html"> EN </a>
+  </div>
+
+  <!-- Heading -->
+  <div id="companyNameContainer" class="notranslate">
+    <h1 id="companyName">Atelier <br> Amandine</h1>
+    <h2 id="tagline">de cr&eacute;ation des vitraux La Corr&egrave;ze</h2>   
+  </div>
+
+  <!-- Navigation Bar -->
+  <div id="navBarStartPos"></div>
+  <div id="container">
+    <ul>
+      <li > <a href="testimonials-fr.html">Témoignages</a></li>
+      <li> <a href="gallery-fr.html">Galeri</a></li>
+      <li>  <a href="contact-fr.html">Contacter</a></li>
+      <li> <a href="index.html">Accueil</a></li>
+    </ul>
+  </div>
+
+  <!-- Contact Form -->
+  <div id="formContainer">
+    <div id="contactContainer">
+      <p>Veuillez remplir le formulaire de contact ci-dessous, Cath fera tout son possible pour vous répondre dans les plus brefs délais par e-mail que vous fournissez.</p>
+    </div>
+    <form class="form">
+      <label for="name">Nom</label>
+      <input type="text" id="name" name="fullname" placeholder="S'il vous plaît entrez votre nom..." required>
+
+      <label for="country">Pays</label>
+      <select id="country" name="country">
+        <option value="France">France</option>
+        <option value="Royaume-Uni">Royaume-Uni</option>
+      </select>
+
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" placeholder="Veuillez saisir votre email..." required>
+
+      <label for="emailConfirm">Confirmation de l'émail</label>
+      <input type="text" id="emailConfirm" name="emailConf" placeholder="Veuillez saisir à nouveau votre e-mail pour confirmer" required>
+      <div id="alertBox">
+        <p id="alert">Les e-mails ne correspondent pas</p>
+      </div>
+
+      <label for="message">Message</label>
+      <textarea name="message" rows="8" placeholder="Ecrivez votre message ici..." required></textarea>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <!--- Footer -->
+  <div id="footer">
+    <p id="info"> Cath Neal<br>neal.landscape@gmail.com</p>
+    <p id="NS"> Atelier Amandine<br>Numéro Siret :  83348700200010</p>
+    <p id="design"> Design: Tommy Neal</p>
+  </div> 
+
+<script src="app.js"></script>
+</body>
+</html>
