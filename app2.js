@@ -123,14 +123,19 @@ function showSlide(n) {
 const captionDivs = document.querySelectorAll('.text');
 const prompts = document.querySelectorAll('.prompt');
 const captions = document.querySelectorAll('.caption');
+//Init other vars
+let flag = false;
+let mouseIn = false;
 loadEventListeners(); 
 
 function loadEventListeners() {
   captionDivs.forEach((caption, index) => {
     caption.addEventListener('mouseenter', () => {
+      mouseIn = true;
       showCaption(index); //When mouse enters promt div, show the caption
     });
     caption.addEventListener('mouseleave', () => {
+      mouseIn = false;
       captionDisappear(index); //When mouse leaves promt div, remove the caption
     });
   });
@@ -138,16 +143,28 @@ function loadEventListeners() {
 
 
 function showCaption(n) {
+  if (flag) {
+    return;
+  }
+  flag = true;
   //Remove prompt and show caption div for specific slide
   prompts[n].style.display = 'none';
   captionDivs[n].style.height = '35%'; //Change height of div
   captions[n].style.display = 'block';
   setTimeout(function(){
     captions[n].style.opacity = '1'; //after 500ms show caption text
+    flag = false;
+    if(!mouseIn) {
+      captionDisappear(n);
+    }
   }, 500);
 }
 
 function captionDisappear(n) {
+  if (flag) {
+    return;
+  }
+  flag = true;
   captions[n].style.opacity = '0'; //Set caption opacity = 0
   setTimeout(function() {
     captions[n].style.display = 'none'; //Hide caption
@@ -155,5 +172,6 @@ function captionDisappear(n) {
   }, 500);
   setTimeout(function() {
     prompts[n].style.display = 'block'; //Bring prompt back
+    flag = false;
   }, 1200);
 }
