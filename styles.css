@@ -487,12 +487,11 @@ input[type=submit]:hover { /*change style of submit when hovering*/
 }
 @media only screen and (max-width: 990px){
   #langTogContainer{
-    position: absolute;
     left: 485px; /*Stops Toggle buttons from drifting left with resizing past min width of body*/
 
   }
   #formContainer{
-    padding: 0 200px 0 200px; /*less padding on form at smaller screen size*/
+    padding: 0 200px 50px 200px; /*less padding on form at smaller screen size*/
   }
 
 }
