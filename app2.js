@@ -91,8 +91,7 @@ function skewChange() {
       });
       liText.forEach(link => {
         link.style.transform = `skewY(${skewliText}deg)`;
-        console.log(link.style.tansform);
-      })
+      });
     }
   }
 }
