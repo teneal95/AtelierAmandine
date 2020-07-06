@@ -306,7 +306,7 @@ li a:hover{
   color: white;
   border-radius: 4px; /*rounded corners*/
 }
-input[type=text], select, textarea { /*selecting inputs*/
+input[type=text], input[type=email], select, textarea { /*selecting inputs*/
   font-family: Raleway, Verdana, Geneva, Tahoma, sans-serif;
   letter-spacing: 0.01em;
   width: 100%; 
