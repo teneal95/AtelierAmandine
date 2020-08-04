@@ -3,14 +3,13 @@
   font-family: Raleway;
   src: url(fonts/Raleway-Light.ttf);
 }
+html{
+  font-size: 16px;
+}
 body{
   margin: 0;
   padding:0;
-  font-family: Raleway, Verdana, Geneva, Tahoma, sans-serif;  
-  position: relative; /*relative position required for min-width of webpage*/
-  top: 0;
-  left: 0;
-  min-width: 970px; /*min-width of webpage*/
+  font-family: Raleway, Verdana, Geneva, Tahoma, sans-serif; 
 }
  
 /*Language Toggle Links*/
@@ -24,10 +23,10 @@ body{
 }
 .langToggle{
   color: white;
-  font-size: 18pt;
+  font-size: 1.5rem;
   text-decoration: none;
   float: left;
-  padding: 15px;
+  padding: 0.5em;
   font-weight: bold;
   transition: background-color 0.6s ease; /*Hover style change eases*/
 }
@@ -37,8 +36,8 @@ body{
 
 /*Heading and Tagline styles*/
 #companyNameContainer {
-  width: 340px; 
-  height: 215px; 
+  width: 21.25rem; 
+  height: 13.4rem; 
   margin: 0;
   padding: 0;
   position: absolute;
@@ -52,9 +51,9 @@ body{
   width: 100%;
   height: 100%;
   content: "";
-  position:absolute;
+  position: absolute;
   top: 0;
-  left: 18px;
+  left: 1.125rem;
   background: rgb(76, 91, 94);
   transform: skewX(-8deg); /*Add the same container before and skew in the x direction to give slanted style on right side*/
 }
@@ -62,7 +61,7 @@ body{
   width: 95%;
   height: 100%;
   content: "";
-  position:absolute;
+  position: absolute;
   top: -20%;
   left: 0;
   background: rgb(76, 91, 94);
@@ -72,21 +71,21 @@ body{
 #companyName {
   font-weight: 100;
   color: white;
-  font-size: 35pt;
+  font-size: 3rem;
   margin: 0;
-  padding: 28px 28px 0px 28px;
+  padding: 0.6em 0.6em 0em 0.6em;
   max-width: 100%;
-  letter-spacing: 0.17em;
+  letter-spacing: 0.16em;
   transform: skewY(8deg); /*Reverse Skew inherited from container so that text is straight*/
 }
 #tagline{
   color: white;
   font-weight: 100;
-  font-size: 11pt;
+  font-size: 0.92rem;
   font-weight: 100;
   letter-spacing: 0.1em;
   margin: 0;
-  padding: 10px 28px 28px 28px;
+  padding: 0.9em 1.9em 0em 1.9em;
   transform: skewY(8deg) /*Reverse Skew inherited from container so that text is straight*/
 }
   
@@ -94,7 +93,7 @@ body{
   
 #navBarStartPos{
   width: 100%;
-  height: 49px; /*49px div to offset start position of navigation bar*/ 
+  height: 3.25rem; /*49px div to offset start position of navigation bar*/ 
   background-color: rgba(58, 58, 58);
 }
 #container{
@@ -128,12 +127,18 @@ li a {
   text-decoration: none;
   color: white;
   display: block;
-  padding:20px;
+  padding: 1.125em;
   transform: skewY(-1.6deg); /*Reverse inherited skews for text in NavBar*/
   transition: background-color 0.6s ease; /*Hover style change eases*/
 }
 li a:hover{
   background-color: rgb(80, 80, 80)
+}
+.mobLang {
+  display: none;
+}
+.dropdown{
+  display: none;
 }
   
 /* Background */
@@ -152,7 +157,7 @@ li a:hover{
 #quContainer{
   width: 100%;
   background-color: rgb(58, 58, 58, 0.7);
-  height: 90px;
+  height: 5.6rem;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -160,12 +165,12 @@ li a:hover{
 }
 .quText {
   width: 100%;
-  font-size: 16pt;
+  font-size: 1.333rem;
   font-style: italic;
   letter-spacing: 0.15em;
   margin: 0;
   position: absolute;
-  top: 30px;
+  top: 33%;
   left: 0;
   text-align: center;
   color: white;
@@ -220,32 +225,34 @@ li a:hover{
   94%, 100% {opacity: 0; } /*fade out q3*/
 }
 /* Info */
+#wrapper{
+  position: relative;
+  top: -60px;
+  left: 0;
+}
 #flexContainer{
   position: relative;
-  top: -50px; /*relative positioning to show top of pictures to user when page loads*/
   left: 0;
   display: flex; /*using flex display for responsive style*/
   flex-direction: row; /*flex in row direction*/
   margin: 0;
-  padding: 15px 40px 15px 40px;
+  padding: 1rem 2.5rem 1rem 2.5rem;
   max-width: 100%;
 }
 .imgContainer{
   margin: 0;
-  padding: 15px 40px 15px 40px;
+  padding: 1rem 2.5rem 1rem 2.5rem;
   flex: 33.33%; /*each picture takes a third of the space*/
 }
 .images{
   width: 100%;
 }
 #textContainer{
-  position: relative; /*Container of main information positioned slightly higher to match picture above*/
-  top: -50px; 
-  padding: 0px 115px 0px 115px;
+  padding: 0 7.2rem 5rem;
 }
 #para{
   text-align: justify;
-  font-size: 17pt;
+  font-size: 1.5rem;
   line-height: 2.5em;
   font-weight: 500;
 }
@@ -257,42 +264,45 @@ li a:hover{
   left: 0;
   background-color: rgb(58, 58, 58);
   width: 100%;
-  height: 110px;
+  height: 7rem;
   color: white;
-  font-size: 12pt;
+  font-size: 1rem;
   line-height: 2em;
 }
 #info{
   position: absolute; /*position personal info to right*/
+  margin: 1.5rem 0;
   top: 10px;
   left: 80px;
 }
 #design {
-  width: 175px;
-  text-align: center;
   opacity: 0.4;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
+  margin: 1.5rem 0;
 }
 #NS{
   position: absolute; /*position company info to left*/
-  top: 10px;
+  top: 0;
   right: 80px;
+  margin: 1.5rem 0;
 }
 
 
 /* Contact Form Styles */
 #formContainer {
   position: relative; /*Push form down slightly*/
-  top: 150px;
-  padding: 0 20vw 50px 20vw;
+  top: 0;
+  width: 80vw;
+  margin: auto;
+  padding: 10rem 0 5rem;
 }
 #contactContainer{
-  width: 600px;
-  margin: auto;
   margin-bottom: 50px;
+  font-size: 1.4rem;
+  text-align: justify;
 }
 #alertBox {
   padding: 10px;
@@ -333,8 +343,6 @@ input[type=submit]:hover { /*change style of submit when hovering*/
 }
 /* Gallery Styles */
 #galleryContainer {
-  max-width: 1200px; 
-  min-width: 950px;
   height: 85vh; /*user can view whole gallery with navebar and heading in viewport*/
   position: relative;
   margin: 90px auto; /*add top and bottom margin, centre align*/
@@ -425,28 +433,23 @@ input[type=submit]:hover { /*change style of submit when hovering*/
 
 /*Testimonial Styles*/
 #testsContainer{
-  width: 100%;
-  position: relative;
-  top: 0;
-  display: flex; /*using flex display for responsive style*/ 
-  flex-direction: row-reverse; /*flex in reverse row direction*/
-  flex-wrap: wrap; /*wraps onto new line after two testimonials*/
+  margin: 20rem 0 10rem;
 }
-.testContainer{
-  box-sizing: border-box; /*include padding in dimensions*/
-  flex: 0 50%; /*items take 50% of room per row, and do not grow*/
-  position: relative;
-  top: 0;
-  left: 0;
+.testEven{
+  padding: 0rem 10rem 20rem 5rem;
 }
-
+.testOdd{
+  padding: 0rem 5rem 20rem 10rem;
+}
+#testLast{
+  padding: 0rem 10rem 0rem;
+}
 .testText{
-  font-size: 14pt;
+  font-size: 1.2rem;
   text-align: justify;
   font-style: italic;
   line-height: 3em;
-  letter-spacing: 1px;
-
+  letter-spacing: 0.06rem;
 }
 .quoteMarkStart, .quoteMarkEnd{
   font-size: 6em;
@@ -459,25 +462,13 @@ input[type=submit]:hover { /*change style of submit when hovering*/
   top: 0.5em;
   left: 1em;
 }
-.left{
-  padding: 100px 75px 100px 200px; /*more padding on outside and less on inside*/
-}
-.right{
-  padding: 100px 200px 100px 75px; /*more padding on outside and less on inside*/
-}
-.left .testText{
-  position: relative; /*move quote slightly down*/
-  top: 100px;
-}
 
 
 /* Responsive Styles */
-@media only screen and (max-width: 1300px){
-  .para{
-    font-size: 15pt; /*change font size at smaller screen size*/
-  }
-}
 @media only screen and (max-width: 1150px){
+  html{
+    font-size: 14px;
+  }
   #workBench {
     display: none; /*reduce number of pictures to two on main page at smaller screen size*/
   }
@@ -486,12 +477,155 @@ input[type=submit]:hover { /*change style of submit when hovering*/
   }
 }
 @media only screen and (max-width: 990px){
-  #langTogContainer{
-    left: 485px; /*Stops Toggle buttons from drifting left with resizing past min width of body*/
+  html{
+    font-size: 12px;
+  }
 
+}
+@media only screen and (max-width: 750px){
+  html{
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 595px){
+  #navBarStartPos{
+    display: none;
+  }
+  #langTogContainer{
+    display: none;
+  }
+  .dropdownItems{
+    display: none;
+  }
+  .dropdown{
+    display: block;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  li{
+    float: right;
+    clear: right;
+  }
+  .openMobNav{
+    display: block;
+  }
+  #main_background{
+    display: none;
+  }
+  #sunflower{
+    display: none;
+  }
+  .imgContainer{
+    padding: 0;
+  }
+  #flexContainer{
+    padding: 0;
+  }
+  #wrapper{
+    top: -20px;
+  }
+  #textContainer{
+    padding: 2rem 4rem 0 4rem;
+  }
+  #companyName{
+    font-size: 2rem;
+    transform: skewY(5deg); 
+  }
+  #tagline{
+    display: none;
+    transform: skewY(5);
+  }
+  #info{
+    left: 30px;
+  }
+  #NS{
+    top: 5rem;
+    left: 30px;
+  }
+  #design{
+    transform: translateX(0);
+    left: 30px;
+    top: 10rem; 
+  }
+  #footer{
+    height: 15rem;
+  }
+  #companyNameContainer {
+    width: 14.2rem; 
+    height: 8.9rem;
+    transform: skewY(-5deg);
+  }
+  #companyNameContainer::before {
+    transform: skewX(-5deg);
+  }
+  #companyNameContainer::after{
+    transform: skewY(5deg);
   }
   #formContainer{
-    padding: 0 200px 50px 200px; /*less padding on form at smaller screen size*/
+    padding-top: 5rem;
   }
-
+  #testsContainer{
+  margin: 4rem 0 2rem;
+  }
+  .testEven, .testOdd, #testLast{
+    padding: 5rem;
+  }
+  .testText{
+    letter-spacing: 1px;
+    line-height: 2.5em;
+  }
+  #galleryContainer {
+    position: relative;
+    margin: 60px auto; /*add top and bottom margin, centre align*/
+    background-color: rgba(255, 255, 255, 0);
+    display: block;
+    height: auto;
+  }
+  #prev, #next {
+  display: none;
+  }
+  .slides{
+    height: auto;
+    position: static;
+    transform: translateX(0); /*centre slides*/
+  
+  }
+  .contentContainer{
+    height: auto; /*3% space at top and bottom*/
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0; /*centres img containers*/
+  }
+  .galleryImg{
+    display: block;
+    height: auto;
+    width: 100%;
+    margin: auto;
+  }
+  .text{
+    box-sizing: border-box;
+    background-color: rgb(0, 0, 0, 0);
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 2%;
+    color: black;
+    transition: none; /*when size is changed, transition is eased*/
+    margin-bottom: 3rem;
+  }
+  .prompt{
+    display: none;
+  }
+  .caption{
+    font-weight: bold;
+    font-style: italic;
+    display: block;
+    opacity: 1;
+    transition: none; /*when opacity is changed, transition is eased*/
+    padding-left: 1em;
+    padding-right: 1em;
+    color: rgb(112, 106, 106);
+    font-size: 1.6rem;
+  }
 }
