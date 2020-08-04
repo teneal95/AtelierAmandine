@@ -25,9 +25,12 @@
   <div id="navBarStartPos"></div>
   <div id="container">
     <ul>
-      <li > <a href="testimonials-fr.html">Témoignages</a></li>
-      <li> <a href="gallery-fr.html">Galeri</a></li>
-      <li>  <a href="contact-fr.html">Contacter</a></li>
+      <li class="dropdown"> <a href="">&#9776;</a> </li>
+      <li class="dropdownItems"> <a href="testimonials-fr.html">Témoignages</a></li>
+      <li class="dropdownItems"> <a href="gallery-fr.html">Galeri</a></li>
+      <li class="dropdownItems">  <a href="contact-fr.html">Contacter</a></li>
+      <li class="dropdownItems mobLang"> <a href="index.html"> EN </a> </li>
+      <li class="dropdownItems mobLang"> <a href="index-fr.html"> FR </a> </li>
     </ul>
   </div>
 
@@ -41,17 +44,20 @@
   </div>
 
   <!-- Info -->
-  <div id="flexContainer">
-    <div class="imgContainer">
-      <img src="images/flowers1.jpg" alt="Stained glass flowers" class="images">
-    </div>
-    <div class="imgContainer" id="workBench">
-      <img src="images/workbench1.jpg" alt="Work Bench" class="images">
-    </div>
-    <div class="imgContainer">
-      <img src="images/sunflower1.jpg" alt="Stained glass sunflower" class="images">
+  <div id="wrapper">
+    <div id="flexContainer">
+      <div class="imgContainer">
+        <img src="images/flowers1.jpg" alt="Stained glass flowers" class="images">
+      </div>
+      <div class="imgContainer" id="workBench">
+        <img src="images/workbench1.jpg" alt="Work Bench" class="images">
+      </div>
+      <div class="imgContainer">
+        <img src="images/sunflower1.jpg" alt="Stained glass sunflower" class="images">
+      </div>
     </div>
   </div>
+  
   <div id="textContainer">
     <p id="para"> Basé dans le merveilleux paysage Correzian du sud-ouest de la France, Cath Neal est
     une archéologue paysagiste britannique qui a étudié l’artisanat en 2005.
@@ -66,8 +72,11 @@
   <div id="footer">
     <p id="info"> Cath Neal<br>neal.landscape@gmail.com</p>
     <p id="NS"> Atelier Amandine<br>Numéro Siret :  83348700200010</p>
-    <p id="design"> Design: Tommy Neal</p>
+    <p id="design"> Conception: Tommy Neal</p>
   </div> 
+  
+  <!-- Scripts -->
+  <script src="navBarApp.js"></script>
 
 </body>
 </html>
