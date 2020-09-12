@@ -1,50 +1,49 @@
-/*Adding custom font Raleway*/
+/* 
+  ***************************************************************
+  ***   Meta Styles for whole document at all sizes           ***
+  ***               Font/html/body styles                     ***
+  ***                                                         ***
+  ***************************************************************
+*/
 @font-face {
   font-family: Raleway;
   src: url(fonts/Raleway-Light.ttf);
 }
 html{
-  font-size: 16px;
+  font-size: 10px;
 }
 body{
   margin: 0;
   padding:0;
   font-family: Raleway, Verdana, Geneva, Tahoma, sans-serif; 
 }
- 
-/*Language Toggle Links*/
-#langTogContainer{
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0); /*Fixed positioning/translate centre the language toggle at the top of page*/
-  z-index: 500;
-  background-color: rgb(58, 58, 58);
-}
-.langToggle{
-  color: white;
-  font-size: 1.5rem;
-  text-decoration: none;
-  float: left;
-  padding: 0.5em;
-  font-weight: bold;
-  transition: background-color 0.6s ease; /*Hover style change eases*/
-}
-.langToggle:hover{
-  background-color: rgb(80, 80, 80); /*Hover style change*/
-}
 
-/*Heading and Tagline styles*/
+/* 
+  ***************************************************************
+  ***                 Mobile styles first                     ***
+  ***   All these styles visible on screen widths below       ***
+  ***                        595px                            ***
+  ***************************************************************
+*/
+
+
+/*********************************************
+***   Mobile Heading and Tagline styles    ***
+*********************************************/
+
+#langTogContainer{
+  display: none; /* Hide Desktop Language Toggle Links*/
+}
 #companyNameContainer {
-  width: 21.25rem; 
-  height: 13.4rem; 
+  width: 14.2rem; 
+  height: 8.9rem;
   margin: 0;
   padding: 0;
   position: absolute;
   top: 0;
   left: 0;
   background-color: rgb(76, 91, 94);
-  transform: skewY(-8deg); /*Skew container to give slanted style on bottom*/
+  transform: skewY(-5deg); /*Skew container to give slanted style on bottom*/
   z-index: 200;
 }
 #companyNameContainer::before {
@@ -55,7 +54,7 @@ body{
   top: 0;
   left: 1.125rem;
   background: rgb(76, 91, 94);
-  transform: skewX(-8deg); /*Add the same container before and skew in the x direction to give slanted style on right side*/
+  transform: skewX(-5deg); /*Add the same container before and skew in the x direction to give slanted style on right side*/
 }
 #companyNameContainer::after{ /*Add the same container after and reverse skew in y direction, this container covers transparent space left in the top left corner from previous skews*/ 
   width: 95%;
@@ -65,36 +64,31 @@ body{
   top: -20%;
   left: 0;
   background: rgb(76, 91, 94);
-  transform: skewY(8deg);
+  transform: skewY(5deg);
   z-index: -300;
 }
 #companyName {
   font-weight: 100;
   color: white;
-  font-size: 3rem;
+  font-size: 2rem;
   margin: 0;
   padding: 0.6em 0.6em 0em 0.6em;
   max-width: 100%;
   letter-spacing: 0.16em;
-  transform: skewY(8deg); /*Reverse Skew inherited from container so that text is straight*/
+  transform: skewY(5deg); /*Reverse Skew inherited from container so that text is straight*/
 }
 #tagline{
-  color: white;
-  font-weight: 100;
-  font-size: 0.92rem;
-  font-weight: 100;
-  letter-spacing: 0.1em;
-  margin: 0;
-  padding: 0.9em 1.9em 0em 1.9em;
-  transform: skewY(8deg) /*Reverse Skew inherited from container so that text is straight*/
+  display: none;
 }
-  
-/*NavBar Styles*/
-  
+
+
+/*********************************************
+***        Mobile Navigation styles        ***
+*********************************************/
+
+
 #navBarStartPos{
-  width: 100%;
-  height: 3.25rem; /*49px div to offset start position of navigation bar*/ 
-  background-color: rgba(58, 58, 58);
+  display: none;
 }
 #container{
   overflow: hidden;
@@ -103,6 +97,7 @@ body{
   margin: 0;
   background-image: linear-gradient(to bottom, rgb(58, 58, 58, 1) 50%, rgb(58, 58, 58, 0)50%); /*Used to cover transparent space left by skew of <ul> and <li>'s, bottom half is left transparent so bottom skew style is left visible*/
   z-index: 100;
+  border: none;
 
 }
 ul {
@@ -117,10 +112,10 @@ ul {
   margin: 0 0 16px 0; /*Bottom margin used to create transparent skew for NavBar. If skewY() angle on ul/li/li a change, this must also be changed to fit.*/
   transform: skewY(0.8deg); /*Skew style for bottom of NavBar*/
   z-index: 100;
-
 }
 li {
   float: right; 
+  clear: right;
   transform: skewY(0.8deg); /*Skew style for bottom of NavBar*/
 }
 li a {
@@ -134,101 +129,70 @@ li a {
 li a:hover{
   background-color: rgb(80, 80, 80)
 }
-.mobLang {
+.dropdownItems{
   display: none;
 }
 .dropdown{
-  display: none;
+  display: block;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
-  
-/* Background */
-  
-#main_background{
-  position: relative; /*relative positioning to move slightly down*/
-  top: -75px; 
-  left: 0;
-  width: 100%;
-  height: 80vh; /*height not covering the whole viewport*/
-  margin: 0;
-  z-index: -20; /*low z index for rotating questions to be on top*/
-  background: url("images/WorkingOriginal1111.jpg") no-repeat right bottom fixed; /*main picture for homepage, fixed positioning*/
-  background-size: cover;
+.openMobNav{
+  display: block;
 }
-#quContainer{
-  width: 100%;
-  background-color: rgb(58, 58, 58, 0.7);
-  height: 5.6rem;
-  position: absolute;
+
+/*********************************************
+***         Mobile Footer styles           ***
+*********************************************/
+#footer{
+  position: relative; /*Position footer at bottom of page*/
   bottom: 0;
   left: 0;
-  right: 0;
-}
-.quText {
+  background-color: rgb(58, 58, 58);
   width: 100%;
-  font-size: 1.333rem;
-  font-style: italic;
-  letter-spacing: 0.15em;
-  margin: 0;
-  position: absolute;
-  top: 33%;
-  left: 0;
-  text-align: center;
+  height: 15rem;
   color: white;
-  animation-duration: 30s; /*animation settings for rotating questions on bottom on main picture*/
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  -webkit-animation-timing-function: ease-in-out;
-  -webkit-animation-duration: 30s;
-  -webkit-animation-timing-function: infinite;
+  font-size: 1rem;
+  line-height: 2em;
 }
-/*animation names for each question*/
-#q1{
-  animation-name: anim_1;
-  -webkit-animation-name: anim_1;
+#info{
+  position: absolute; /*position personal info to right*/
+  top: 0;
+  left: 30px;
+  margin: 1.5rem 0;
 }
-#q2{
-  animation-name: anim_2;
-  -webkit-animation-name: anim_2;
+#NS{
+  position: absolute; /*position company info to left*/
+  top: 5rem;
+  left: 30px;
+  margin: 1.5rem 0;
+  width: fit-content;
 }
-#q3{
-  animation-name: anim_3;
-  -webkit-animation-name: anim_3;
+#design{
+  opacity: 0.4;
+  position: absolute;
+  left: 30px;
+  top: 10rem;
+  margin: 1.5rem 0;
 }
-@keyframes anim_1 {
-  0%, 6% {opacity: 0; } /*fade in q1*/
-  6%, 27% {opacity: 1; } /*max opacity*/
-  33%, 100% {opacity: 0; } /*fade out q1*/
-}
-@-webkit-keyframes anim_1 {
-  0%, 6% {opacity: 0; } /*fade in q1*/
-  6%, 27% {opacity: 1; } /*max opacity*/
-  33%, 100% {opacity: 0; } /*fade out q1*/
-}
-@keyframes anim_2 {
-  0%, 33% {opacity: 0; } /*fade in q2*/
-  39%, 60% {opacity: 1; } /*max opacity*/
-  66%, 100% {opacity: 0; } /*fade out q2*/
-}
-@-webkit-keyframes anim_2 {
-  0%, 33% {opacity: 0; } /*fade in q2*/
-  39%, 60% {opacity: 1; } /*max opacity*/
-  66%, 100% {opacity: 0; } /*fade out q2*/
-}
-@keyframes anim_3 {
-  0%, 66% {opacity: 0; }/*fade in q3*/
-  72%, 94% {opacity: 1; } /*max opacity*/
-  94%, 100% {opacity: 0; } /*fade out q3*/
-}
-@-webkit-keyframes anim_3 {
-  0%, 66% {opacity: 0; }/*fade in q3*/
-  72%, 94% {opacity: 1; } /*max opacity*/
-  94%, 100% {opacity: 0; } /*fade out q3*/
-}
-/* Info */
+
+/*********************************************
+***       Moblie HOME PAGE styles          ***
+*********************************************/
+
 #wrapper{
   position: relative;
-  top: -60px;
+  top: -20px;
   left: 0;
+}
+#main_background{
+  display: none;
+}
+#workBench {
+  display: none;
+}
+#sunflower{
+  display: none;
 }
 #flexContainer{
   position: relative;
@@ -236,19 +200,19 @@ li a:hover{
   display: flex; /*using flex display for responsive style*/
   flex-direction: row; /*flex in row direction*/
   margin: 0;
-  padding: 1rem 2.5rem 1rem 2.5rem;
+  padding: 0;
   max-width: 100%;
 }
 .imgContainer{
   margin: 0;
-  padding: 1rem 2.5rem 1rem 2.5rem;
-  flex: 33.33%; /*each picture takes a third of the space*/
+  flex: 33.33%;
+  padding: 0;
 }
 .images{
   width: 100%;
 }
 #textContainer{
-  padding: 0 7.2rem 5rem;
+  padding: 2rem 4rem 0 4rem;
 }
 #para{
   text-align: justify;
@@ -257,47 +221,15 @@ li a:hover{
   font-weight: 500;
 }
 
-/* Footer */
-#footer{
-  position: relative; /*Position footer at bottom of page*/
-  bottom: 0;
-  left: 0;
-  background-color: rgb(58, 58, 58);
-  width: 100%;
-  height: 7rem;
-  color: white;
-  font-size: 1rem;
-  line-height: 2em;
-}
-#info{
-  position: absolute; /*position personal info to right*/
-  margin: 1.5rem 0;
-  top: 0;
-  left: 80px;
-}
-#design {
-  opacity: 0.4;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 0;
-  margin: 1.5rem 0;
-}
-#NS{
-  position: absolute; /*position company info to left*/
-  top: 0;
-  right: 80px;
-  margin: 1.5rem 0;
-}
-
-
-/* Contact Form Styles */
+/*********************************************
+***     Mobile CONTACT PAGE styles         ***
+*********************************************/
 #formContainer {
   position: relative; /*Push form down slightly*/
   top: 0;
   width: 80vw;
   margin: auto;
-  padding: 10rem 0 5rem;
+  padding: 5rem;
 }
 #contactContainer{
   margin-bottom: 50px;
@@ -341,115 +273,77 @@ input[type=submit] { /*selecting submit button*/
 input[type=submit]:hover { /*change style of submit when hovering*/
   background-color: rgb(80, 80, 80);
 }
-/* Gallery Styles */
+
+
+/*********************************************
+***       Mobile GALLERY PAGE styles       ***
+*********************************************/
+
 #galleryContainer {
-  height: 85vh; /*user can view whole gallery with navebar and heading in viewport*/
   position: relative;
-  margin: 90px auto; /*add top and bottom margin, centre align*/
-  background-color: rgba(58, 58, 58, 0.5);
-  display: none; /*initially not visible, visibility changed in app2.js*/
-  transition: 1s ease-in-out; /*when size is changed, transition is eased*/
+  margin: 60px auto; /*add top and bottom margin, centre align*/
+  background-color: rgba(255, 255, 255, 0);
+  display: block;
+  height: auto;
 }
 #prev, #next {
-  cursor: pointer; /*pointer on hover*/
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease; /*hover style change eased*/
-  border-radius: 0 3px 3px 0; /*inside corners rounded*/
-  user-select: none; /*can not highligh arrow as you can with text, produces more of an icon*/
-}
-#next {
-  right: 0; /*move next button to opposite side*/
-  border-radius: 3px 0 0 3px; /*inside corners rounded*/
-}
-#prev:hover, #next:hover {
-  background-color: rgba(0,0,0,0.8); /*hover colour change*/
+display: none;
 }
 .slides{
-  height: 100%;
-  position: absolute;
-  left: 50%; /*centre slides*/
-  top: 0;
-  transform: translateX(-50%); /*centre slides*/
+  height: auto;
+  position: static;
 }
 .contentContainer{
-  height: 94%; /*3% space at top and bottom*/
+  height: auto; /*3% space at top and bottom*/
   position: relative;
   top: 0;
   left: 0;
-  margin: 3% 0; /*centres img conytainers*/
+  margin: 0; /*centres img containers*/
 }
 .galleryImg{
   display: block;
-  height: 100%;
+  height: auto;
+  width: 100%;
+  margin: auto;
 }
 .text{
   box-sizing: border-box;
-  background-color: rgb(0, 0, 0, 0.6);
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  background-color: rgb(0, 0, 0, 0);
+  position: relative;
   width: 100%;
-  height: 38px;
+  height: auto;
   padding: 2%;
-  color: white;
-  transition: 1s ease; /*when size is changed, transition is eased*/
+  color: black;
+  margin-bottom: 3rem;
 }
 .prompt{
-  text-align: center;
-  display: block;
+  display: none;
 }
 .caption{
-  display: none;
-  text-align: justify;
-  opacity: 0;
-  transition: 1s ease; /*when opacity is changed, transition is eased*/
+  font-weight: bold;
+  font-style: italic;
   padding-left: 1em;
   padding-right: 1em;
-}
-/* Fading animation for image changes in gallery*/
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+  color: rgb(112, 106, 106);
+  font-size: 1.6rem;
 }
 
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
+/*********************************************
+***    Mobile TESTIMONIAL PAGE styles      ***
+*********************************************/
 
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-/*Testimonial Styles*/
 #testsContainer{
-  margin: 20rem 0 10rem;
-}
-.testEven{
-  padding: 0rem 10rem 20rem 5rem;
-}
-.testOdd{
-  padding: 0rem 5rem 20rem 10rem;
-}
-#testLast{
-  padding: 0rem 10rem 0rem;
+  margin: 4rem 0 2rem;
+  }
+.testEven, .testOdd, #testLast{
+  padding: 5rem;
 }
 .testText{
   font-size: 1.2rem;
   text-align: justify;
   font-style: italic;
-  line-height: 3em;
-  letter-spacing: 0.06rem;
+  line-height: 2.5em;
+  letter-spacing: 1px;
 }
 .quoteMarkStart, .quoteMarkEnd{
   font-size: 6em;
@@ -463,169 +357,346 @@ input[type=submit]:hover { /*change style of submit when hovering*/
   left: 1em;
 }
 
+/* 
+  ***************************************************************
+  ***                   Resonsive Stlyes                      ***
+  ***************************************************************
+*/
 
-/* Responsive Styles */
-@media only screen and (max-width: 1150px){
-  html{
-    font-size: 14px;
-  }
-  #workBench {
-    display: none; /*reduce number of pictures to two on main page at smaller screen size*/
-  }
-  .imgContainer{
-    flex: 50%;
-  }
-}
-@media only screen and (max-width: 990px){
-  html{
-    font-size: 12px;
-  }
+@media only screen and (min-width: 595px){ /* Screen widths larger than 595px */
 
-}
-@media only screen and (max-width: 750px){
-  html{
-    font-size: 10px;
-  }
-}
-@media only screen and (max-width: 595px){
-  #navBarStartPos{
-    display: none;
-  }
+  /*********************************
+  *** Heading and Tagline styles ***
+  *********************************/
   #langTogContainer{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0); /*Fixed positioning/translate centre the language toggle at the top of page*/
+    z-index: 500;
+    background-color: rgb(58, 58, 58);
+  }
+  .langToggle{
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    float: left;
+    padding: 0.5em;
+    font-weight: bold;
+    transition: background-color 0.6s ease; /*Hover style change eases*/
+  }
+  .langToggle:hover{
+    background-color: rgb(80, 80, 80); /*Hover style change*/
+  }
+  #companyNameContainer {
+    width: 21.25rem; 
+    height: 13.4rem; 
+    transform: skewY(-8deg);
+  }
+  #companyNameContainer::before {
+    transform: skewX(-8deg); 
+  }
+  #companyNameContainer::after{ 
+    transform: skewY(8deg);
+  }
+  #companyName {
+    font-size: 3rem;
+    transform: skewY(8deg); 
+  }
+  #tagline{
+    display: block;
+    color: white;
+    font-weight: 100;
+    font-size: 0.92rem;
+    font-weight: 100;
+    letter-spacing: 0.1em;
+    margin: 0;
+    padding: 0.9em 1.9em 0em 1.9em;
+    transform: skewY(8deg) /*Reverse Skew inherited from container so that text is straight*/
+  }
+
+  /****************************
+  *** Navigation Bar styles ***
+  ****************************/
+
+  #navBarStartPos{
+    display: block;
+    width: 100%;
+    height: 3.25rem; /* div to offset start position of navigation bar*/ 
+    background-color: rgba(58, 58, 58);
+  }
+  li {
+    clear: none;
+  }
+  .dropdown{
     display: none;
   }
   .dropdownItems{
-    display: none;
-  }
-  .dropdown{
-    display: block;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  li{
-    float: right;
-    clear: right;
-  }
-  .openMobNav{
     display: block;
   }
-  #main_background{
+  .mobLang {
     display: none;
   }
-  #sunflower{
-    display: none;
-  }
-  .imgContainer{
-    padding: 0;
-  }
-  #flexContainer{
-    padding: 0;
-  }
-  #wrapper{
-    top: -20px;
-  }
-  #textContainer{
-    padding: 2rem 4rem 0 4rem;
-  }
-  #companyName{
-    font-size: 2rem;
-    transform: skewY(5deg); 
-  }
-  #tagline{
-    display: none;
-    transform: skewY(5);
+
+  /********************
+  *** Footer styles ***
+  ********************/
+
+  #footer{
+    height: 7rem;
   }
   #info{
-    left: 30px;
+    left: 80px;
   }
   #NS{
-    top: 5rem;
-    left: 30px;
+    top: 0;
+    left: auto;
+    right: 80px;
   }
   #design{
-    transform: translateX(0);
-    left: 30px;
-    top: 10rem; 
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    bottom: 0;
   }
-  #footer{
-    height: 15rem;
-  }
-  #companyNameContainer {
-    width: 14.2rem; 
-    height: 8.9rem;
-    transform: skewY(-5deg);
-  }
-  #companyNameContainer::before {
-    transform: skewX(-5deg);
-  }
-  #companyNameContainer::after{
-    transform: skewY(5deg);
-  }
-  #formContainer{
-    padding-top: 5rem;
-  }
-  #testsContainer{
-  margin: 4rem 0 2rem;
-  }
-  .testEven, .testOdd, #testLast{
-    padding: 5rem;
-  }
-  .testText{
-    letter-spacing: 1px;
-    line-height: 2.5em;
-  }
-  #galleryContainer {
-    position: relative;
-    margin: 60px auto; /*add top and bottom margin, centre align*/
-    background-color: rgba(255, 255, 255, 0);
+
+  
+  /***********************
+  *** HOME PAGE styles ***
+  ***********************/
+
+  #sunflower{
     display: block;
-    height: auto;
+  }
+  .imgContainer{
+    padding: 1rem 2.5rem 1rem 2.5rem;
+  }
+  #flexContainer{
+    padding: 1rem 2.5rem 1rem 2.5rem;
+  }
+  #wrapper{
+    top: -60px;
+  }
+  #textContainer{
+    padding: 0 7.2rem 5rem;
+  }
+  #main_background{
+    display: block;
+    position: relative; /*relative positioning to move slightly down*/
+    top: -75px; 
+    left: 0;
+    width: 100%;
+    height: 80vh; /*height not covering the whole viewport*/
+    margin: 0;
+    z-index: -20; /*low z index for rotating questions to be on top*/
+    background: url("images/WorkingOriginal1111.jpg") no-repeat right bottom fixed; /*main picture for homepage, fixed positioning*/
+    background-size: cover;
+  }
+  #quContainer{
+    width: 100%;
+    background-color: rgb(58, 58, 58, 0.7);
+    height: 5.6rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .quText {
+    width: 100%;
+    font-size: 1.333rem;
+    font-style: italic;
+    letter-spacing: 0.15em;
+    margin: 0;
+    position: absolute;
+    top: 33%;
+    left: 0;
+    text-align: center;
+    color: white;
+    animation-duration: 30s; /*animation settings for rotating questions on bottom on main picture*/
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 30s;
+    -webkit-animation-timing-function: infinite;
+  }
+  /*animation names for each question*/
+  #q1{
+    animation-name: anim_1;
+    -webkit-animation-name: anim_1;
+  }
+  #q2{
+    animation-name: anim_2;
+    -webkit-animation-name: anim_2;
+  }
+  #q3{
+    animation-name: anim_3;
+    -webkit-animation-name: anim_3;
+  }
+  @keyframes anim_1 {
+    0%, 6% {opacity: 0; } /*fade in q1*/
+    6%, 27% {opacity: 1; } /*max opacity*/
+    33%, 100% {opacity: 0; } /*fade out q1*/
+  }
+  @-webkit-keyframes anim_1 {
+    0%, 6% {opacity: 0; } /*fade in q1*/
+    6%, 27% {opacity: 1; } /*max opacity*/
+    33%, 100% {opacity: 0; } /*fade out q1*/
+  }
+  @keyframes anim_2 {
+    0%, 33% {opacity: 0; } /*fade in q2*/
+    39%, 60% {opacity: 1; } /*max opacity*/
+    66%, 100% {opacity: 0; } /*fade out q2*/
+  }
+  @-webkit-keyframes anim_2 {
+    0%, 33% {opacity: 0; } /*fade in q2*/
+    39%, 60% {opacity: 1; } /*max opacity*/
+    66%, 100% {opacity: 0; } /*fade out q2*/
+  }
+  @keyframes anim_3 {
+    0%, 66% {opacity: 0; }/*fade in q3*/
+    72%, 94% {opacity: 1; } /*max opacity*/
+    94%, 100% {opacity: 0; } /*fade out q3*/
+  }
+  @-webkit-keyframes anim_3 {
+    0%, 66% {opacity: 0; }/*fade in q3*/
+    72%, 94% {opacity: 1; } /*max opacity*/
+    94%, 100% {opacity: 0; } /*fade out q3*/
+  }
+  
+  /**************************
+  *** CONTACT PAGE styles ***
+  **************************/
+  #formContainer{
+    padding: 10rem 0 5rem;
+  }
+
+  /**************************
+  *** GALLERY PAGE styles ***
+  **************************/
+  #galleryContainer {
+    height: 85vh; /*user can view whole gallery with navebar and heading in viewport*/
+    position: relative;
+    margin: 90px auto; /*add top and bottom margin, centre align*/
+    background-color: rgba(58, 58, 58, 0.5);
+    display: none; /*initially not visible, visibility changed in app2.js*/
+    transition: 1s ease-in-out; /*when size is changed, transition is eased*/
   }
   #prev, #next {
-  display: none;
+    display: block;
+    cursor: pointer; /*pointer on hover*/
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease; /*hover style change eased*/
+    border-radius: 0 3px 3px 0; /*inside corners rounded*/
+    user-select: none; /*can not highligh arrow as you can with text, produces more of an icon*/
+  }
+  #next {
+    right: 0; /*move next button to opposite side*/
+    border-radius: 3px 0 0 3px; /*inside corners rounded*/
+  }
+  #prev:hover, #next:hover {
+    background-color: rgba(0,0,0,0.8); /*hover colour change*/
   }
   .slides{
-    height: auto;
-    position: static;
-    transform: translateX(0); /*centre slides*/
-  
+    height: 100%;
+    position: absolute;
+    left: 50%; /*centre slides*/
+    top: 0;
+    transform: translateX(-50%); /*centre slides*/
   }
   .contentContainer{
-    height: auto; /*3% space at top and bottom*/
+    height: 94%; /*3% space at top and bottom*/
     position: relative;
     top: 0;
     left: 0;
-    margin: 0; /*centres img containers*/
+    margin: 3% 0; /*centres img containers*/
   }
   .galleryImg{
     display: block;
-    height: auto;
-    width: 100%;
-    margin: auto;
+    height: 100%;
+    width: auto;
   }
   .text{
     box-sizing: border-box;
-    background-color: rgb(0, 0, 0, 0);
-    position: relative;
+    background-color: rgb(0, 0, 0, 0.6);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0;
     width: 100%;
-    height: auto;
+    height: 38px;
     padding: 2%;
-    color: black;
-    transition: none; /*when size is changed, transition is eased*/
-    margin-bottom: 3rem;
+    color: white;
+    transition: 1s ease; /*when size is changed, transition is eased*/
   }
   .prompt{
-    display: none;
+    text-align: center;
+    display: block;
   }
   .caption{
-    font-weight: bold;
-    font-style: italic;
-    display: block;
-    opacity: 1;
-    transition: none; /*when opacity is changed, transition is eased*/
+    display: none;
+    font-weight: normal;
+    color: white;
+    font-size: 1rem;
+    text-align: justify;
+    font-style: normal;
+    opacity: 0;
+    transition: 1s ease; /*when opacity is changed, transition is eased*/
     padding-left: 1em;
     padding-right: 1em;
-    color: rgb(112, 106, 106);
-    font-size: 1.6rem;
+  }
+  /* Fading animation for image changes in gallery*/
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+
+  /******************************
+  *** TESTIMONIAL PAGE styles ***
+  ******************************/
+
+  #testsContainer{
+    margin: 14rem 0 10rem;
+  }
+  .testEven{
+    padding: 0rem 10rem 20rem 5rem;
+  }
+  .testOdd{
+    padding: 0rem 5rem 20rem 10rem;
+  }
+  #testLast{
+    padding: 0rem 10rem 0rem;
+  }
+  .testText{
+    line-height: 3em;
+    letter-spacing: 0.06rem;
+  }
+}
+@media only screen and (min-width: 750px){
+  html{
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 990px){
+  html{
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 1150px){
+  html{
+    font-size: 16px;
+  }
+  #workBench{ 
+    display: block;
   }
 }
